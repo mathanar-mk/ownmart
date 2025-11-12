@@ -5,9 +5,7 @@ import os
 import qrcode
 from PIL import Image, ImageTk
 
-# --------------------
-# Configuration
-# --------------------
+
 ITEM_PRICES = {
     "Milk (1L)": 62.0,
     "Bread (Loaf)": 45.0,
@@ -25,13 +23,11 @@ ITEM_PRICES = {
 GST_RATE = 0.05
 DISCOUNT_RATE = 0.10
 DISCOUNT_THRESHOLD = 1000.0
-G_PAY_UPI_ID = "skiranbedi@okhdfcbank"  # 🔁 Change this to your real UPI ID
+G_PAY_UPI_ID = ""  # #Customiable
 
 cart = []
 
-# --------------------
-# Utility Functions
-# --------------------
+
 def format_money(value):
     return f"₹{value:,.2f}"
 
@@ -125,9 +121,7 @@ def print_receipt():
     except Exception as e:
         messagebox.showerror("Print Error", f"Error printing receipt:\n{e}")
 
-# --------------------
-# GOOGLE PAY QR GENERATION
-# --------------------
+
 def pay_with_gpay():
     total_text = total_var.get().replace("₹", "").replace(",", "")
     try:
@@ -167,9 +161,7 @@ def pay_with_gpay():
 
     ttk.Button(qr_window, text="Close", command=qr_window.destroy).pack(pady=10)
 
-# --------------------
-# UI SETUP
-# --------------------
+
 root = tk.Tk()
 root.title("Mini POS - Retail Billing")
 root.geometry("760x540")
@@ -252,3 +244,4 @@ exit_btn.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="ew")
 
 refresh_receipt()
 root.mainloop()
+
